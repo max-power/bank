@@ -1,6 +1,6 @@
 # Bank
 
-TODO: Write a gem description
+IBAN & BIC information, validation and formatting. Ships with ActiveModel validators.
 
 ## Installation
 
@@ -18,27 +18,73 @@ Or install it yourself as:
 
 ## Usage
 
+### Bank:::IBAN
+
     require 'bank/iban'
+
+    iban = IBAN.new("DE89 3704 0044 0532 0130 00")
+
+    iban.country_code    # "DE"
+    iban.check_digits    # "89"
+    iban.bban            # "370400440532013000"
+    iban.account_number  # "0532013000"
+    iban.bank_identifier # "37040044"
+
+    iban.valid?          # true
+
+    iban.to_s            # "DE89370400440532013000"
+    iban.to_s(true)      # "DE89 3704 0044 0532 0130 00"
+
+    iban.to_i            # 370400440532013000131489
     
-    iban = Bank::IBAN.new('FR14 2004 1010 0505 0001 3M026 06')
-    iban.valid?
+    # or 
     
+    IBAN.valid? "DE89 3704 0044 0532 0130 00" # true
+
+or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
+
+    class Company
+      include ActiveModel::Model
+      attr_accessor :iban
+      validates :iban, iban: true
+    end
+    
+### Bank::BIC 
     
     require 'bank/bic'
     
     bic  = Bank::BIC.new('BYLADEM1203')
+    bic.bank_code
+    bic.country_code
+    bic.location_code
+    bic.branch_code    
+    bic.to_s
     bic.valid?
     
+or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
+
+    class Company
+      include ActiveModel::Model
+      attr_accessor :bic
+      validates :bic, bic: true
+    end
     
-    require 'bank/contact'
+### Bank::Contact
+     
+    require 'bank/contact' # this requires 'iban' and 'bic'
     
-    contact = Bank::Contact.new(iban, valid)
+    # paramters: IBAN, BIC
+    contact = Bank::Contact.new("DE89 3704 0044 0532 0130 00", "BYLADEM1203")
+    contact.iban
+    contact.bic
+    contact.to_h
+    contact.to_a
     contact.valid?
     
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/bank/fork )
+1. Fork it ( http://github.com/max-power/bank/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
