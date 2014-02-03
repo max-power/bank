@@ -3,12 +3,19 @@ require 'bank/bic'
 
 module Bank
   class Contact
-    attr_accessor :iban
-    attr_accessor :bic
+    attr_reader :iban, :bic
     
     def initialize(iban, bic)
-      @iban = IBAN.new(iban)
-      @bic  = BIC.new(bic)
+      self.iban = iban
+      self.bic  = bic
+    end
+    
+    def iban=(value)
+      @iban = IBAN.new(value)
+    end
+    
+    def bic=(value)
+      @bic = BIC.new(value)
     end
     
     def valid?
