@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'bank'
+    gem 'bank-contact'
 
 And then execute:
 
@@ -14,11 +14,27 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bank
+    $ gem install bank-contact
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'bank/iban'
+    
+    iban = Bank::IBAN.new('FR14 2004 1010 0505 0001 3M026 06')
+    iban.valid?
+    
+    
+    require 'bank/bic'
+    
+    bic  = Bank::BIC.new('BYLADEM1203')
+    bic.valid?
+    
+    
+    require 'bank/contact'
+    
+    contact = Bank::Contact.new(iban, valid)
+    contact.valid?
+    
 
 ## Contributing
 
