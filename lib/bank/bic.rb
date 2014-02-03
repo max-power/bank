@@ -1,4 +1,4 @@
-require "bank/bic/validator" if defined? ActiveModel
+require "bank/validators/bic_validator" if defined? ActiveModel
 
 module Bank
   class BIC
