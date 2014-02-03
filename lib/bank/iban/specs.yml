@@ -1,0 +1,406 @@
+# http://en.wikipedia.org/wiki/International_Bank_Account_Number#IBAN_formats_by_country
+# http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf
+
+al: # Albania
+  length: 28
+#  regexp: '\d{8}[A-Z0-9]{16}'
+  regexp: '(?<bank_identifier>\d{8})(?<account_number>[A-Z0-9]{16})'
+
+ad: # Andorra
+  length: 24
+#  regexp: '\d{8}[A-Z0-9]{12}'
+  regexp: '(?<bank_identifier>\d{4})(?<branch_identifier>\d{4})(?<account_number>[A-Z0-9]{12})'
+
+at: # Austria
+  length: 20
+#  regexp: '\d{16}'
+  regexp: '(?<bank_identifier>\d{5})(?<account_number>\d{11})'
+
+az: # Azerbaijan
+  length: 28
+#  regexp: '[A-Z0-9]{4}\d{20}'
+  regexp: '(?<bank_identifier>[A-Z0-9]{4})(?<account_number>\d{20})'
+
+bh: # Bahrain
+  length: 22
+#  regexp: '[A-Z]{4}[A-Z0-9]{14}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<account_number>[A-Z0-9]{14})'
+  
+be: # Belgium
+  length: 16
+#  regexp: '\d{12}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>\d{7})(?<national_check_digits>\d{2})'
+  
+ba: # Bosnia and Herzegovina
+  length: 20
+#  regexp: '\d{16}'
+  regexp: '(?<bank_identifier>\d{3})(?<branch_identifier>\d{3})(?<account_number>\d{8})(?<national_check_digits>\d{2})'
+  
+br: # Brazil
+  length: 29
+#  regexp: '\d{23}[A-Z][A-Z0-9]'
+  regexp: '(?<bank_identifier>\d{8})(?<branch_identifier>\d{5})(?<account_number>\d{10})(?<account_type>[A-Z])(?<account_owner>[A-Z0-9])'
+  
+bg: # Bulgaria
+  length: 22
+#  regexp: '[A-Z]{4}\d{6}[A-Z0-9]{8}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<branch_identifier>\d{4})(?<account_type>\d{2})(?<account_number>[A-Z0-9]{8})'
+
+cr: # Costa Rica
+  length: 21
+#  regexp: '\d{17}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>\d{14})'
+
+hr: # Croatia
+  length: 21
+#  regexp: '\d{17}'
+  regexp: '(?<bank_identifier>\d{7})(?<account_number>\d{10})'
+  
+cy: # Cyprus
+  length: 28
+#  regexp: '\d{8}[A-Z0-9]{16}'
+  regexp: '(?<bank_identifier>\d{3})(?<branch_identifier>\d{5})(?<account_number>[A-Z0-9]{16})'
+
+cz: # Czech Republic
+  length: 24
+#  regexp: '\d{20}'
+  regexp: '(?<bank_identifier>\d{4})(?<account_number>\d{6}\d{10})'
+  
+de: # Germany
+  length: 22
+#  regexp: '\d{18}'
+  regexp: '(?<bank_identifier>\d{8})(?<account_number>\d{10})'
+  
+dk: # Denmark
+  length: 18
+#  regexp: '\d{14}'
+  regexp: '(?<bank_identifier>\d{4})(?<account_number>\d{9})(?<national_check_digits>\d{1})'
+
+gl: # Greenland (same as Denmark)
+  length: 18
+#  regexp: '\d{14}'
+  regexp: '(?<bank_identifier>\d{4})(?<account_number>\d{9})(?<national_check_digits>\d{1})'
+
+fo: # Faroe Islands (same as Denmark)
+  length: 18
+#  regexp: '\d{14}'
+  regexp: '(?<bank_identifier>\d{4})(?<account_number>\d{9})(?<national_check_digits>\d{1})'
+
+do: # Dominican Republic
+  length: 28
+#  regexp: '[A-Z]{4}\d{20}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<account_number>\d{20})'
+
+ee: # Estonia
+  length: 20
+#  regexp: '\d{16}'
+  regexp: '(?<bank_identifier>\d{2})(?<branch_identifier>\d{2})(?<account_number>\d{11})(?<national_check_digits>\d{1})'
+
+fi: # Finland
+  length: 18
+#  regexp: '\d{14}'
+  regexp: '(?<bank_identifier>\d{6})(?<account_number>\d{7})(?<national_check_digits>\d{1})'
+
+fr: # France
+  length: 27
+#  regexp: '\d{10}[A-Z0-9]{11}\d{2}'
+  regexp: '(?<bank_identifier>\d{5})(?<branch_identifier>\d{5})(?<account_number>[A-Z0-9]{11})(?<national_check_digits>\d{2})'
+
+ge: # Georgia
+  length: 22
+#  regexp: '[A-Z]{2}\d{16}'
+  regexp: '(?<bank_identifier>[A-Z]{2})(?<account_number>\d{16})'
+
+gi: # Gibraltar
+  length: 23
+#  regexp: '[A-Z]{4}[A-Z0-9]{15}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<account_number>[A-Z0-9]{15})'
+
+gr: # Greece
+  length: 27
+#  regexp: '\d{7}[A-Z0-9]{16}'
+  regexp: '(?<bank_identifier>\d{4})(?<branch_identifier>\d{3})(?<account_number>[A-Z0-9]{16})'
+
+gt: # Guatemala
+  length: 28
+#  regexp: '[A-Z0-9]{4}[A-Z0-9]{20}'
+  regexp: '(?<bank_identifier>[A-Z0-9]{4})(?<account_number>[A-Z0-9]{20})'
+
+hu: # Hungary
+  length: 28
+#  regexp: '\d{24}'
+  regexp: '(?<bank_identifier>\d{3})(?<branch_identifier>\d{4})(?<account_number>\d{1}\d{15})(?<national_check_digits>\d{1})'
+  
+is: # Iceland
+  length: 26
+#  regexp: '\d{22}'
+  regexp: '(?<bank_identifier>\d{4})(?<branch_identifier>\d{2})(?<account_number>\d{6}\d{10})'
+
+ie: # Ireland
+  length: 22
+#  regexp: '[A-Z0-9]{4}\d{14}'
+  regexp: '(?<bank_identifier>[A-Z0-9]{4})(?<branch_identifier>\d{6})(?<account_number>\d{8})'
+
+il: # Israel
+  length: 23
+#  regexp: '\d{19}'
+  regexp: '(?<bank_identifier>\d{3})(?<branch_identifier>\d{3})(?<account_number>\d{13})'
+
+it: # Italy
+  length: 27
+#  regexp: '[A-Z]\d{10}[A-Z0-9]{12}'
+  regexp: '(?<national_check_digits>[A-Z])(?<bank_identifier>\d{5})(?<branch_identifier>\d{5})(?<account_number>[A-Z0-9]{12})'
+
+kz: # Kazakhstan
+  length: 20
+#  regexp: '\d{3}[A-Z0-9]{13}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>[A-Z0-9]{13})'
+
+kw: # Kuwait
+  length: 30
+#  regexp: '[A-Z]{4}[A-Z0-9]{22}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<account_number>[A-Z0-9]{22})'
+
+lv: # Latvia
+  length: 21
+#  regexp: '[A-Z]{4}[A-Z0-9]{13}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<account_number>[A-Z0-9]{13})'
+
+lb: # Lebanon
+  length: 28
+#  regexp: '\d{4}[A-Z0-9]{20}'
+  regexp: '(?<bank_identifier>\d{4})(?<account_number>[A-Z0-9]{20})'
+
+li: # Liechtenstein
+  length: 21
+#  regexp: '\d{5}[A-Z0-9]{12}'
+  regexp: '(?<bank_identifier>\d{5})(?<account_number>[A-Z0-9]{12})'
+
+lt: # Lithuania
+  length: 20
+#  regexp: '\d{16}'
+  regexp: '(?<bank_identifier>\d{5})(?<account_number>\d{11})'
+
+lu: # Luxembourg
+  length: 20
+#  regexp: '\d{3}[A-Z0-9]{13}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>[A-Z0-9]{13})'
+
+mk: # Macedonia
+  length: 19
+#  regexp: '\d{3}[A-Z0-9]{10}\d{2}'
+  regexp: '(?<branch_identifier>\d{3})(?<account_number>[A-Z0-9]{10})(?<national_check_digits>\d{2})'
+
+mt: # Malta
+  length: 31
+#  regexp: '[A-Z]{4}\d{5}[A-Z0-9]{18}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<branch_identifier>\d{5})(?<account_number>[A-Z0-9]{18})'
+
+mr: # Mauritania
+  length: 27
+#  regexp: '\d{23}'
+  regexp: '(?<bank_identifier>\d{5})(?<branch_identifier>\d{5})(?<account_number>\d{11})(?<national_check_digits>\d{2})'
+  
+mu: # Mauritius
+  length: 30
+#  regexp: '[A-Z]{4}\d{19}[A-Z]{3}'
+  regexp: '(?<bank_identifier>[A-Z]{4}\d{2})(?<branch_identifier>\d{2})(?<account_number>\d{12}\d{3}[A-Z]{3})'
+
+mc: # Monaco
+  length: 27
+#  regexp: '\d{10}[A-Z0-9]{11}\d{2}'
+  regexp: '(?<bank_identifier>\d{5})(?<branch_identifier>\d{5})(?<account_number>[A-Z0-9]{11})(?<national_check_digits>\d{2})'
+
+md: # Moldova
+  length: 24
+#  regexp: '[A-Z0-9]{2}\d{18}'
+  regexp: '(?<bank_identifier>[A-Z0-9]{2})(?<account_number>\d{18})'
+
+me: # Montenegro
+  length: 22
+#  regexp: '\d{18}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>(\d{13})(\d{2}))'
+  
+nl: # Netherlands
+  length: 18
+#  regexp: '[A-Z]{4}\d{10}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<account_number>\d{10})'
+  
+'no': # Norway
+  length: 15
+#  regexp: '\d{11}'
+  regexp: '(?<bank_identifier>\d{4})(?<account_number>(\d{6})(\d{1}))'
+  
+pk: # Pakistan
+  length: 24
+#  regexp: '[A-Z0-9]{4}\d{16}'
+  regexp: '(?<bank_identifier>[A-Z0-9]{4})(?<account_number>\d{16})'
+  
+ps: # Palestine
+  length: 29
+#  regexp: '[A-Z0-9]{4}\d{21}'
+  regexp: '(?<bank_identifier>[A-Z0-9]{4})(?<account_number>\d{21})'
+  
+pl: # Poland
+  length: 28
+#  regexp: '\d{24}'
+  regexp: '(?<bank_identifier>\d{8})(?<account_number>\d{16})'
+  
+pt: # Portugal
+  length: 25
+#  regexp: '\d{21}'
+  regexp: '(?<bank_identifier>\d{4})(?<branch_identifier>\d{4})(?<account_number>\d{11})(?<national_check_digits>\d{2})'
+  
+ro: # Romania
+  length: 24
+#  regexp: '[A-Z]{4}[A-Z0-9]{16}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<account_number>[A-Z0-9]{16})'
+
+sm: # San Marino
+  length: 27
+#  regexp: '[A-Z]\d{10}[A-Z0-9]{12}'
+  regexp: '(?<national_check_digits>[A-Z])(?<bank_identifier>\d{5})(?<branch_identifier>\d{5})(?<account_number>[A-Z0-9]{12})'
+
+sa: # Saudi Arabia
+  length: 24
+#  regexp: '\d{2}[A-Z0-9]{18}'
+  regexp: '(?<bank_identifier>\d{2})(?<account_number>[A-Z0-9]{18})'
+
+rs: # Serbia
+  length: 22
+#  regexp: '\d{18}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>\d{13})(?<national_check_digits>\d{2})'
+  
+sk: # Slovak Republic
+  length: 24
+#  regexp: '\d{20}'
+  regexp: '(?<bank_identifier>\d{4})(?<branch_identifier>\d{6})(?<account_number>\d{10})'
+
+si: # Slovenia
+  length: 19
+#  regexp: '\d{15}'
+  regexp: '(?<bank_identifier>\d{5})(?<account_number>\d{8})(?<national_check_digits>\d{2})'
+  
+es: # Spain
+  length: 24
+#  regexp: '\d{20}'
+  regexp: '(?<bank_identifier>\d{4})(?<branch_identifier>\d{4})(?<national_check_digits>\d{1}\d{1})(?<account_number>\d{10})'
+  
+se: # Sweden
+  length: 24
+#  regexp: '\d{20}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>\d{16}\d{1})'
+
+ch: # Switzerland
+  length: 21
+#  regexp: '\d{5}[A-Z0-9]{12}'
+  regexp: '(?<bank_identifier>\d{5})(?<account_number>[A-Z0-9]{12})'
+
+tn: # Tunisia
+  length: 24
+#  regexp: '\d{20}'
+  regexp: '(?<bank_identifier>\d{2})(?<branch_identifier>\d{3})(?<account_number>\d{13}\d{2})'
+
+tr: # Turkey
+  length: 26
+#  regexp: '\d{5}[A-Z0-9]{17}'
+  regexp: '(?<bank_identifier>\d{5})([A-Z0-9])(?<account_number>[A-Z0-9]{16})'
+  
+ae: # United Arab Emirates
+  length: 23
+#  regexp: '\d{3}\d{16}'
+  regexp: '(?<bank_identifier>\d{3})(?<account_number>\d{16})'
+  
+gb: # United Kingdom
+  length: 22
+#  regexp: '[A-Z]{4}\d{14}'
+  regexp: '(?<bank_identifier>[A-Z]{4})(?<branch_identifier>\d{6})(?<account_number>\d{8})'
+  
+vg: # Virgin Islands, British
+  length: 24
+#  regexp: '[A-Z0-9]{4}\d{16}'
+  regexp: '(?<bank_identifier>[A-Z0-9]{4})(?<account_number>\d{16})'
+
+# In addition to the above list, Nordea has catalogued IBANs for countries listed below.[32]
+
+ao: # Angola
+  length: 25
+#  regexp: '\d{21}'
+  regexp: '\d{21}'
+
+bj: # Benin
+  length: 28
+#  regexp: '[A-Z]\d{23}'
+  regexp: '[A-Z]\d{23}'
+
+bf: # Burkina Faso
+  length: 27
+#  regexp: '\d{23}'
+  regexp: '\d{23}'
+
+bi: # Burundi
+  length: 16
+#  regexp: '\d{12}'
+  regexp: '\d{12}'
+
+cm: # Cameroon
+  length: 27
+#  regexp: '\d{23}'
+  regexp: '\d{23}'
+
+cv: # Cape Verde
+  length: 25
+#  regexp: '\d{21}'
+  regexp: '\d{21}'
+
+ir: # Iran
+  length: 26
+#  regexp: '\d{22}'
+  regexp: '\d{22}'
+
+ci: # Ivory Coast
+  length: 28
+#  regexp: '[A-Z]\d{23}'
+  regexp: '[A-Z]\d{23}'
+
+mg: # Madagascar
+  length: 27
+#  regexp: '\d{23}'
+  regexp: '\d{23}'
+
+ml: # Mali
+  length: 28
+#  regexp: '[A-Z]\d{23}'
+  regexp: '[A-Z]\d{23}'
+
+mz: # Mozambique
+  length: 25
+#  regexp: '\d{21}'
+  regexp: '\d{21}'
+
+sn: # Senegal
+  length: 28
+#  regexp: '[A-Z]\d{23}'
+  regexp: '[A-Z]\d{23}'
+
+# not quite sure about these:
+
+# cg: # Republic Congo
+#   length: 27
+# #  regexp: ''
+#
+# dz: # Algeria
+#   length: 24
+# #  regexp: ''
+#
+# eg: # Egypt
+#   length: 27
+# #  regexp: ''
+#
+# ga: # Gabun
+#   length: 27
+# #  regexp: ''
+#
+# ua: # Ukraine
+#  length: 29
+##  regexp: ''
