@@ -2,6 +2,9 @@
 
 IBAN & BIC information, validation and formatting. Ships with ActiveModel validators.
 
+[![Gem Version](https://badge.fury.io/rb/bank.png)](http://badge.fury.io/rb/bank)
+[![Build Status](https://travis-ci.org/max-power/bank.png?branch=master)](https://travis-ci.org/max-power/bank)
+
 ## Installation
 
 Add this line to your application's Gemfile:
