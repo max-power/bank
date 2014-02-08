@@ -11,8 +11,8 @@ describe Bank::IBAN do
   end
   
   it "should load the validation rules" do
-    Bank::IBAN.specifications.wont_be :empty?
-    Bank::IBAN.specifications.must_be_kind_of Hash
+    Bank.load_specifications(:iban).wont_be :empty?
+    Bank.load_specifications(:iban).must_be_kind_of Hash
   end
 
   it "should return the county code" do
@@ -24,7 +24,8 @@ describe Bank::IBAN do
   end
  
   it "should return the BBAN" do
-    @iban.bban.must_equal "20041010050500013M02606"
+    @iban.bban.must_be_kind_of Bank::BBAN 
+    @iban.bban.to_s.must_equal "20041010050500013M02606"
   end
  
   it "should convert to integer value" do
@@ -45,6 +46,14 @@ describe Bank::IBAN do
 
   it "should return account_number" do
     @iban.account_number.must_equal "0500013M026"
+  end
+  
+  it "should return bank_identifier" do
+    @iban.bank_identifier.must_equal "20041"
+  end
+  
+  it "should return branch_identifier" do
+    @iban.branch_identifier.must_equal "01005"
   end
   
   [
