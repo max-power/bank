@@ -8,3 +8,12 @@ end
 
 desc "Run tests"
 task :default => :test
+
+desc "Run console"
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require 'bank/contact'
+  ARGV.clear
+  IRB.start
+end
