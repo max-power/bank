@@ -21,15 +21,16 @@ Or install it yourself as:
 
 ## Usage
 
-### Bank:::IBAN
+### Bank::IBAN
 
     require 'bank/iban'
 
-    iban = IBAN.new("DE89 3704 0044 0532 0130 00")
+    iban = Bank::IBAN.new("DE89 3704 0044 0532 0130 00")
 
     iban.country_code    # "DE"
     iban.check_digits    # "89"
-    iban.bban            # "370400440532013000"
+    iban.bban            # <Bank::BBAN...>
+    iban.bban.to_s       # "370400440532013000"
     iban.account_number  # "0532013000"
     iban.bank_identifier # "37040044"
 
@@ -42,7 +43,7 @@ Or install it yourself as:
     
     # or 
     
-    IBAN.valid? "DE89 3704 0044 0532 0130 00" # true
+    Bank::IBAN.valid? "DE89 3704 0044 0532 0130 00" # true
 
 or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
 
