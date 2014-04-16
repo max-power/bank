@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe Bank::BIC do
   before do
     @bic = Bank::BIC.new('ABNACHZ8XXX')
@@ -23,29 +22,30 @@ describe Bank::BIC do
   end
 
   [ 8, 11 ].each do |len|
-    describe 'x'*len do
-      it "has a valid length" do
-        Bank::BIC.new('x'*len).valid_length?.must_equal true
+    describe 'x' * len do
+      it 'has a valid length' do
+        Bank::BIC.new('x' * len).valid_length?.must_equal true
       end
     end
   end
 
   1.upto(20) do |len|
     if len != 8 && len != 11
-      describe 'x'*len do
-        it "has a valid length" do
-          Bank::BIC.new('x'*len).valid_length?.must_equal false
+      describe 'x' * len do
+        it 'has a valid length' do
+          Bank::BIC.new('x' * len).valid_length?.must_equal false
         end
       end
     end
   end
 
-  [ 'UCJAES2MXXX',
+  [
+    'UCJAES2MXXX',
     'ABAGATWWXXX',
     'UCJAES2MXXX'
   ].each do |code|
     describe code do
-      it "has a valid format" do
+      it 'has a valid format' do
         Bank::BIC.new(code).valid_format?.must_equal true
       end
     end
@@ -55,7 +55,7 @@ describe Bank::BIC do
     '12341234'
   ].each do |code|
     describe code do
-      it "has an invalid format" do
+      it 'has an invalid format' do
         Bank::BIC.new(code).valid_format?.must_equal false
       end
     end
