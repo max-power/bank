@@ -21,7 +21,7 @@ describe Bank::BIC do
     @bic.branch_code.must_equal 'XXX'
   end
 
-  [ 8, 11 ].each do |len|
+  [8, 11].each do |len|
     describe 'x' * len do
       it 'has a valid length' do
         Bank::BIC.new('x' * len).valid_length?.must_equal true
