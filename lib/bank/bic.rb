@@ -52,7 +52,7 @@ module Bank
     end
     
     def valid_format?
-      @code =~ /^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$/
+      !!(@code =~ /^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$/)
     end
     
     def valid_location_code?
