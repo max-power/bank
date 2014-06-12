@@ -1,5 +1,5 @@
-require "bank/iban"
-require "bank/bic"
+require 'bank/iban'
+require 'bank/bic'
 
 module Bank
   class Contact

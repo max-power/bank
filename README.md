@@ -25,25 +25,25 @@ Or install it yourself as:
 
     require 'bank/iban'
 
-    iban = Bank::IBAN.new("DE89 3704 0044 0532 0130 00")
+    iban = Bank::IBAN.new('DE89 3704 0044 0532 0130 00')
 
-    iban.country_code    # "DE"
-    iban.check_digits    # "89"
+    iban.country_code    # 'DE'
+    iban.check_digits    # '89'
     iban.bban            # <Bank::BBAN...>
-    iban.bban.to_s       # "370400440532013000"
-    iban.account_number  # "0532013000"
-    iban.bank_identifier # "37040044"
+    iban.bban.to_s       # '370400440532013000'
+    iban.account_number  # '0532013000'
+    iban.bank_identifier # '37040044'
 
     iban.valid?          # true
 
-    iban.to_s            # "DE89370400440532013000"
-    iban.to_s(true)      # "DE89 3704 0044 0532 0130 00"
+    iban.to_s            # 'DE89370400440532013000'
+    iban.to_s(true)      # 'DE89 3704 0044 0532 0130 00'
 
     iban.to_i            # 370400440532013000131489
-    
-    # or 
-    
-    Bank::IBAN.valid? "DE89 3704 0044 0532 0130 00" # true
+
+    # or
+
+    Bank::IBAN.valid? 'DE89 3704 0044 0532 0130 00' # true
 
 or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
 
@@ -52,19 +52,19 @@ or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
       attr_accessor :iban
       validates :iban, iban: true
     end
-    
-### Bank::BIC 
-    
+
+### Bank::BIC
+
     require 'bank/bic'
-    
+
     bic  = Bank::BIC.new('BYLADEM1203')
     bic.bank_code
     bic.country_code
     bic.location_code
-    bic.branch_code    
+    bic.branch_code
     bic.to_s
     bic.valid?
-    
+
 or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
 
     class Company
@@ -72,19 +72,19 @@ or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
       attr_accessor :bic
       validates :bic, bic: true
     end
-    
+
 ### Bank::Contact
-     
+
     require 'bank/contact' # this requires 'iban' and 'bic'
-    
+
     # paramters: IBAN, BIC
-    contact = Bank::Contact.new("DE89 3704 0044 0532 0130 00", "BYLADEM1203")
+    contact = Bank::Contact.new('DE89 3704 0044 0532 0130 00', 'BYLADEM1203')
     contact.iban
     contact.bic
     contact.to_h
     contact.to_a
     contact.valid?
-    
+
 
 ## Contributing
 

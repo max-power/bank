@@ -1,4 +1,4 @@
-require "active_model/validator"
+require 'active_model/validator'
 
 class BicValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)

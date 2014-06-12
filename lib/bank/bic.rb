@@ -1,4 +1,4 @@
-require "bank/validators/bic_validator" if defined? ActiveModel
+require 'bank/validators/bic_validator' if defined? ActiveModel
 
 module Bank
   class BIC
@@ -32,15 +32,15 @@ module Bank
     end
 
     def test?
-      location_code[1] == "0"
+      location_code[1] == '0'
     end
 
     def passive?
-      location_code[1] == "1"
+      location_code[1] == '1'
     end
 
     def reverse_billing?
-      location_code[1] == "2"
+      location_code[1] == '2'
     end
 
     def valid?
@@ -56,11 +56,11 @@ module Bank
     end
 
     def valid_location_code?
-      location_code[0] != "0" && location_code[0] != "1" && location_code[1] != "O"
+      location_code[0] != '0' && location_code[0] != '1' && location_code[1] != 'O'
     end
 
     def valid_branch_code?
-      branch_code.nil? || !(branch_code[0] == "X" && branch_code != "XXX")
+      branch_code.nil? || !(branch_code[0] == 'X' && branch_code != 'XXX')
     end
 
   end

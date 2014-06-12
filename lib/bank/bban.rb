@@ -1,4 +1,4 @@
-require "bank"
+require 'bank'
 
 module Bank
   class BBAN # Basic Bank Account Number
@@ -16,7 +16,7 @@ module Bank
 
     # the bban is the iban minus the first 4 characters (country_code, check_digits)
     def valid_length?
-      specification && specification["length"] - 4  == @code.length
+      specification && specification['length'] - 4  == @code.length
     end
 
     [:account_number, :bank_identifier, :branch_identifier].each do |m|

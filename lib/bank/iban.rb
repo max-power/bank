@@ -1,6 +1,6 @@
-require "forwardable"
-require "bank/bban"
-require "bank/validators/iban_validator" if defined? ActiveModel
+require 'forwardable'
+require 'bank/bban'
+require 'bank/validators/iban_validator' if defined? ActiveModel
 
 module Bank
   class IBAN # International Bank Account Number
@@ -12,7 +12,7 @@ module Bank
     end
 
     def initialize(code)
-      @code = code.to_s.strip.gsub(/\s+/, "").upcase
+      @code = code.to_s.strip.gsub(/\s+/, '').upcase
     end
 
     def country_code
