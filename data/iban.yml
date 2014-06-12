@@ -382,7 +382,7 @@ es: # Spain
   regexp: >
     (?<bank_identifier>       \d{4})
     (?<branch_identifier>     \d{4})
-    (?<national_check_digits>\d{1}\d{1})
+    (?<national_check_digits> \d{1}\d{1})
     (?<account_number>        \d{10})
 
 se: # Sweden
@@ -430,6 +430,13 @@ vg: # Virgin Islands, British
     (?<account_number>        \d{16})
 
 # In addition to the above list, Nordea has catalogued IBANs for countries listed below.[32]
+
+ua: # Ukraine
+  length: 29
+  regexp: >
+    (?<bank_identifier>       [0-9]{6})
+    (?<account_number>        \d{19})
+
 
 ao: # Angola
   length: 25
@@ -496,7 +503,3 @@ sn: # Senegal
 # ga: # Gabun
 #   length: 27
 # #  regexp: ''
-#
-# ua: # Ukraine
-#  length: 29
-##  regexp: ''
