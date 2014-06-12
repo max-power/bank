@@ -4,7 +4,6 @@ require 'yaml'
 
 module Bank
   def self.load_specifications(name)
-    filename = 'data' + "#{name}.yml"
-    YAML.load_file Pathname.new(__FILE__).dirname.parent + filename
+    YAML.load_file Pathname.new(__FILE__).dirname.parent + 'data' + '#{name}.yml'
   end
 end
