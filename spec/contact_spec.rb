@@ -19,7 +19,7 @@ describe Bank::Contact do
   end
 
   it 'should export to_h' do
-    @contact.to_h.must_equal({iban: 'FR1420041010050500013M02606', bic: 'BYLADEM1203'})
+    @contact.to_h.must_equal(iban: 'FR1420041010050500013M02606', bic: 'BYLADEM1203')
   end
 
   it 'should export to_a' do

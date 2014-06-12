@@ -2,7 +2,6 @@ require 'bank/validators/bic_validator' if defined? ActiveModel
 
 module Bank
   class BIC
-
     def self.valid?(code)
       new(code).valid?
     end
