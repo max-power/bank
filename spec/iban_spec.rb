@@ -1,15 +1,14 @@
-require 'spec_helper'
-
+require "spec_helper"
 
 describe Bank::IBAN do
   before do
-    @iban = Bank::IBAN.new('FR14 2004 1010 0505 0001 3M026 06')
+    @iban = Bank::IBAN.new("FR14 2004 1010 0505 0001 3M026 06")
   end
-  
+
   it "should valid from class method" do
-    Bank::IBAN.valid?('FR14 2004 1010 0505 0001 3M026 06').must_equal true
+    Bank::IBAN.valid?("FR14 2004 1010 0505 0001 3M026 06").must_equal true
   end
-  
+
   it "should load the validation rules" do
     Bank.load_specifications(:iban).wont_be :empty?
     Bank.load_specifications(:iban).must_be_kind_of Hash
@@ -18,26 +17,26 @@ describe Bank::IBAN do
   it "should return the county code" do
     @iban.country_code.must_equal "FR"
   end
- 
+
   it "should return the check digits" do
     @iban.check_digits.must_equal "14"
   end
- 
+
   it "should return the BBAN" do
-    @iban.bban.must_be_kind_of Bank::BBAN 
+    @iban.bban.must_be_kind_of Bank::BBAN
     @iban.bban.to_s.must_equal "20041010050500013M02606"
   end
- 
+
   it "should convert to integer value" do
     @iban.to_i.must_equal 200410100505000132202606152714
   end
- 
+
   it "should convert to string" do
-    @iban.to_s.must_equal 'FR1420041010050500013M02606'
+    @iban.to_s.must_equal "FR1420041010050500013M02606"
   end
-  
+
   it "should convert to formatted string" do
-    @iban.to_s(true).must_equal 'FR14 2004 1010 0505 0001 3M02 606'
+    @iban.to_s(true).must_equal "FR14 2004 1010 0505 0001 3M02 606"
   end
 
   it "should respond_to? account_number" do
@@ -47,15 +46,15 @@ describe Bank::IBAN do
   it "should return account_number" do
     @iban.account_number.must_equal "0500013M026"
   end
-  
+
   it "should return bank_identifier" do
     @iban.bank_identifier.must_equal "20041"
   end
-  
+
   it "should return branch_identifier" do
     @iban.branch_identifier.must_equal "01005"
   end
-  
+
   [
     "AL47212110090000000235698741",
     "AD12 00012030200359100100",
