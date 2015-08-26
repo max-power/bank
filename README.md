@@ -80,11 +80,11 @@ or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
 
     # paramters: IBAN, BIC
     contact = Bank::Contact.new('DE89 3704 0044 0532 0130 00', 'BYLADEM1203')
-    contact.iban
-    contact.bic
-    contact.to_h
-    contact.to_a
-    contact.valid?
+    contact.iban    # <Bank::IBAN...>
+    contact.bic     # <Bank::BIC...>
+    contact.to_h    # {:iban=>"DE89370400440532013000", :bic=>"BYLADEM1203"}
+    contact.to_a    # ["DE89370400440532013000", "BYLADEM1203"]
+    contact.valid?  # true
 
 
 ## Contributing
