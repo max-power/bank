@@ -12,7 +12,7 @@ module Bank
     end
 
     def initialize(code)
-      @code = code.to_s.strip.gsub(/\s+/, '').upcase
+      @code = code.to_s.gsub(/\s+/, '').upcase
     end
 
     def country_code
