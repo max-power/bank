@@ -28,20 +28,20 @@ describe Bank::BIC do
   ].each do |code|
     describe code do
       it 'has a valid format' do
-        Bank::BIC.new(code).valid_format?.must_equal true
+        Bank::BIC.new(code).valid?.must_equal true
       end
     end
   end
 
   [
-    '12341234',
-    'UCJAES2MXAA',
-    'UCJAES2MXX',
-    'UCJAES2MXXX1'
+    '12341234',    # only digits
+    'UCJAES2MXAA', # branch code starts with 'X'
+    'UCJAES2MAA',  # too short
+    'UCJAES2M0001' # too long
   ].each do |code|
     describe code do
       it 'has an invalid format' do
-        Bank::BIC.new(code).valid_format?.must_equal false
+        Bank::BIC.new(code).valid?.must_equal false
       end
     end
   end
