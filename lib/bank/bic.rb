@@ -2,12 +2,14 @@ require 'bank/validators/bic_validator' if defined? ActiveModel
 
 module Bank
   class BIC
+    REGEX = /^([A-Z]{4})([A-Z]{2})([A-Z0-9]{2})([A-Z0-9]{3})?$/.freeze
+    
     def self.valid?(code)
       new(code).valid?
     end
 
     def initialize(code)
-      @code = code.to_s.strip.gsub(/\s+/, '').upcase
+      @code = code.to_s.gsub(/\s+/, '').upcase
     end
 
     def bank_code
@@ -27,7 +29,11 @@ module Bank
     end
 
     def to_s(formatted=false)
-      formatted ? "#{bank_code} #{country_code} #{location_code} #{branch_code}".strip : @code
+      formatted ? to_formatted_str : @code
+    end
+    
+    def to_formatted_str
+      "#{bank_code} #{country_code} #{location_code} #{branch_code}".strip
     end
 
     def test?
@@ -43,24 +49,19 @@ module Bank
     end
 
     def valid?
-      valid_length? && valid_format? && valid_location_code? && valid_branch_code?
-    end
-
-    def valid_length?
-      @code.length == 8 || @code.length == 11
+      valid_format? && valid_location_code? && valid_branch_code?
     end
 
     def valid_format?
-      !!(@code =~ /^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$/)
+      !!@code[REGEX]
     end
 
     def valid_location_code?
-      location_code[0] != '0' && location_code[0] != '1' && location_code[1] != 'O'
+      !location_code.start_with?('0', '1') && !location_code.end_with?('O')
     end
 
     def valid_branch_code?
-      branch_code.nil? || !(branch_code[0] == 'X' && branch_code != 'XXX')
+      branch_code.empty? || branch_code == 'XXX' || !branch_code.start_with?('X')
     end
-
   end
 end

@@ -21,24 +21,6 @@ describe Bank::BIC do
     @bic.branch_code.must_equal 'XXX'
   end
 
-  [8, 11].each do |len|
-    describe 'x' * len do
-      it 'has a valid length' do
-        Bank::BIC.new('x' * len).valid_length?.must_equal true
-      end
-    end
-  end
-
-  1.upto(20) do |len|
-    if len != 8 && len != 11
-      describe 'x' * len do
-        it 'has a valid length' do
-          Bank::BIC.new('x' * len).valid_length?.must_equal false
-        end
-      end
-    end
-  end
-
   [
     'UCJAES2MXXX',
     'ABAGATWWXXX',
@@ -52,7 +34,10 @@ describe Bank::BIC do
   end
 
   [
-    '12341234'
+    '12341234',
+    'UCJAES2MXAA',
+    'UCJAES2MXX',
+    'UCJAES2MXXX1'
   ].each do |code|
     describe code do
       it 'has an invalid format' do
