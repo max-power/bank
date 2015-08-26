@@ -58,12 +58,13 @@ or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
     require 'bank/bic'
 
     bic  = Bank::BIC.new('BYLADEM1203')
-    bic.bank_code
-    bic.country_code
-    bic.location_code
-    bic.branch_code
-    bic.to_s
-    bic.valid?
+    bic.bank_code         # "BYLA"
+    bic.country_code      # "DE"
+    bic.location_code     # "M1"
+    bic.branch_code       # "203"
+    bic.to_s              # "BYLADEM1203"
+    bic.to_s(true)        # "BYLA DE M1 203"
+    bic.valid?            # true
 
 or as ActiveModel Validator (make sure you have 'active_model' in your Gemfile)
 
