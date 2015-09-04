@@ -213,6 +213,12 @@ kz: # Kazakhstan
     (?<bank_identifier>       \d{3})
     (?<account_number>        [A-Z0-9]{13})
 
+xk: # Republic of Kosovo
+  length: 20
+  regexp: >
+    (?<bank_identifier>       \d{4})
+    (?<account_number>        \d{12})
+
 kw: # Kuwait
   length: 30
   regexp: >
