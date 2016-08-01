@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['kevin.melchert@gmail.com']
   spec.summary       = %q{IBAN + SWIFT/BIC}
   spec.description   = %q{IBAN + SWIFT/BIC: Information, Validation and Formatting.}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/max-power/bank'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
