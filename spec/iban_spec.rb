@@ -55,6 +55,12 @@ describe Bank::IBAN do
     @iban.branch_identifier.must_equal '01005'
   end
 
+  it 'knows which countries use IBAN' do
+    @iban.country_applies_iban?.must_equal true
+    unknown_iban = Bank::IBAN.new('ZZ99 123456790')
+    unknown_iban.country_applies_iban?.must_equal false
+  end
+
   [
     'AL47212110090000000235698741',
     'AD12 00012030200359100100',
