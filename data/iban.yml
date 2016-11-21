@@ -1,5 +1,6 @@
 # http://en.wikipedia.org/wiki/International_Bank_Account_Number#IBAN_formats_by_country
 # http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf
+# https://bank.codes/iban/structure/
 
 al: # Albania
   length: 28
@@ -492,20 +493,58 @@ sn: # Senegal
   length: 28
   regexp: '[A-Z]\d{23}'
 
-# not quite sure about these:
+cg: # Republic Congo
+  length: 27
+  regexp: '\d{23}'
 
-# cg: # Republic Congo
-#   length: 27
-# #  regexp: ''
-#
-# dz: # Algeria
-#   length: 24
-# #  regexp: ''
-#
-# eg: # Egypt
-#   length: 27
-# #  regexp: ''
-#
-# ga: # Gabun
-#   length: 27
-# #  regexp: ''
+dz: # Algeria
+  length: 24
+  regexp: '\d{20}'
+
+eg: # Egypt
+  length: 27
+  regexp: '\d{23}'
+
+ga: # Gabon
+  length: 27
+  regexp: '\d{23}'
+
+jo: # Jordan https://bank.codes/iban/structure/jordan/
+  length: 30
+  regexp: >
+    (?<bank_identifier>       [A-Z]{4})
+    (?<branch_identifier>     \d{4})
+    (?<account_number>        [A-Z0-9]{18})
+
+qa: # Qatar https://bank.codes/iban/structure/qatar/
+  length: 29
+  regexp: >
+    (?<bank_identifier>       [A-Z]{4})
+    (?<account_number>        [A-Z0-9]{21})
+
+tl: # Timor Leste https://bank.codes/iban/structure/timor-leste/
+  length: 23
+  regexp: >
+    (?<bank_identifier>       \d{3})
+    (?<account_number>        \d{16})
+
+sc: #Seychelles https://bank.codes/iban/structure/seychelles/
+  length: 31
+  regexp: >
+    (?<bank_identifier>       [A-Z]{4})
+    (?<branch_identifier>     \d{4})
+    (?<account_number>        \d{16})
+    (?<currency>              [A-Z]{3})
+
+st: #Sao Tome and Principe https://bank.codes/iban/structure/sao-tome-and-principe/
+  length: 25
+  regexp: >
+    (?<bank_identifier>       \d{4})
+    (?<branch_identifier>     \d{4})
+    (?<account_number>        \d{13})
+
+lc: #Saint Lucia https://bank.codes/iban/structure/saint-lucia/
+  length: 32
+  regexp: >
+    (?<bank_identifier>       [A-Z]{4})
+    (?<account_number>        \d{24})
