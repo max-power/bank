@@ -5,7 +5,8 @@ require 'bank/validators/iban_validator' if defined? ActiveModel
 module Bank
   class IBAN # International Bank Account Number
     extend Forwardable
-    def_delegators :bban, :account_number, :bank_identifier, :branch_identifier
+    def_delegators :bban,
+      :account_number, :bank_identifier, :branch_identifier, :country_applies_iban?
 
     def self.valid?(code)
       new(code).valid?

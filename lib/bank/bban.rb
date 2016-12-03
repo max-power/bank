@@ -22,6 +22,10 @@ module Bank
     [:account_number, :bank_identifier, :branch_identifier].each do |m|
       define_method(m) { data && data[m] }
     end
+    
+    def country_applies_iban?
+      !!specification
+    end
 
     private
 
